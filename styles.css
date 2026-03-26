@@ -194,7 +194,24 @@ h2 {
   margin: 24px 0;
 }
 
+.scenario-picker {
+  margin-top: 16px;
+}
+
+.picker-label {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.scenario-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .class-button,
+.scenario-button,
 .secondary-button,
 .primary-button,
 .answer-button,
@@ -206,6 +223,7 @@ h2 {
 }
 
 .class-button,
+.scenario-button,
 .secondary-button {
   padding: 12px 18px;
   background: rgba(255, 255, 255, 0.72);
@@ -213,7 +231,8 @@ h2 {
   box-shadow: inset 0 0 0 1px rgba(35, 49, 58, 0.12);
 }
 
-.class-button.selected {
+.class-button.selected,
+.scenario-button.selected {
   background: linear-gradient(135deg, var(--warm), var(--warm-deep));
   color: white;
   box-shadow: 0 10px 24px rgba(215, 127, 49, 0.26);
@@ -230,6 +249,7 @@ h2 {
 .secondary-button:hover,
 .primary-button:hover,
 .class-button:hover,
+.scenario-button:hover,
 .answer-button:hover,
 .close-button:hover {
   transform: translateY(-1px);

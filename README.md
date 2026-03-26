@@ -42,6 +42,21 @@ Dlaczego ten wybór:
 - Poziom trudności dopasowany do wieku.
 - Zagadki zapisane jako dane, aby można było łatwo dodawać nowe historie.
 
+## Architektura
+
+Aktualny kierunek projektu to `generic engine + dane scenariusza`.
+
+- silnik gry obsluguje ekran startowy, mape, hotspoty, modal, postep i final,
+- scenariusze sa przechowywane osobno i opisuja tresc sprawy oraz kroki rozgrywki,
+- obecnie dane sa zapisane w module JS, ale format jest celowo zblizony do przyszlego JSON-a,
+- taka struktura pozwoli pozniej generowac nowe sprawy automatycznie i dolaczac je bez przebudowy logiki.
+
+Na przyszlosc warto tu dodac jeszcze jedna warstwe:
+
+- zapis wynikow dziecka,
+- historie odpowiedzi,
+- adaptacje poziomu trudnosci na podstawie skutecznosci.
+
 ## Pierwsza wersja MVP
 
 Pierwsze wydanie powinno zawierać:
@@ -67,9 +82,13 @@ W katalogu glownym znajduje sie pierwsza grywalna wersja prototypu:
 - `index.html`
 - `styles.css`
 - `script.js`
+- `data/scenarios.js`
+- `engine/game-engine.js`
 
 Uruchomienie lokalne:
 
 1. Otworz `index.html` w przegladarce.
 
 Mozna tez uruchomic prosty lokalny serwer, jesli bedzie potrzebny pozniej, ale na obecnym etapie nie jest to konieczne.
+
+
