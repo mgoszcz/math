@@ -9,6 +9,151 @@ window.gameScenarios = [
     emptyClueText: "Jeszcze nic tu nie ma. Pierwszy trop czeka w pokoju.",
     finalMessage:
       "Tata wzial misia na taras, bo chcial, zeby tez siedzial przy stole podczas podwieczorku. Potem zaniosl koc do ogrodu i zapomnial, ze mis zostal pod pledem obok hustawki.",
+    math: {
+      classProfiles: {
+        1: {
+          maxValue: 20,
+          templates: {
+            add_small: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 1, max: 9 },
+                right: { min: 1, max: 9 }
+              },
+              result: { min: 0, max: 20 },
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 4, minValue: 0 }
+            },
+            add_medium: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 4, max: 12 },
+                right: { min: 3, max: 9 }
+              },
+              result: { min: 0, max: 20 },
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
+            },
+            subtract_small: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 6, max: 16 },
+                right: { min: 1, max: 8 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 4, minValue: 0 }
+            },
+            subtract_medium: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 10, max: 20 },
+                right: { min: 2, max: 10 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
+            }
+          }
+        },
+        2: {
+          maxValue: 30,
+          templates: {
+            add_small: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 6, max: 16 },
+                right: { min: 4, max: 12 }
+              },
+              result: { min: 0, max: 30 },
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 6, minValue: 0 }
+            },
+            add_medium: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 10, max: 20 },
+                right: { min: 6, max: 14 }
+              },
+              result: { min: 0, max: 30 },
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
+            },
+            subtract_small: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 12, max: 24 },
+                right: { min: 3, max: 10 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 6, minValue: 0 }
+            },
+            subtract_medium: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 16, max: 30 },
+                right: { min: 4, max: 14 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
+            }
+          }
+        },
+        3: {
+          maxValue: 50,
+          templates: {
+            add_small: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 10, max: 24 },
+                right: { min: 8, max: 18 }
+              },
+              result: { min: 0, max: 50 },
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 8, minValue: 0 }
+            },
+            add_medium: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 15, max: 32 },
+                right: { min: 9, max: 20 }
+              },
+              result: { min: 0, max: 50 },
+              answerOptions: { count: 3, deltaMin: 3, deltaMax: 9, minValue: 0 }
+            },
+            subtract_small: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 18, max: 40 },
+                right: { min: 5, max: 16 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 8, minValue: 0 }
+            },
+            subtract_medium: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 24, max: 50 },
+                right: { min: 6, max: 20 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 3, deltaMax: 9, minValue: 0 }
+            }
+          }
+        }
+      }
+    },
     map: {
       trailPath:
         "M20 16 L37 16 L37 22 L46 22 L46 32 L56 32 L66 32 L66 39 L72 39 L72 46 L80 46 L80 52 L88 52",
@@ -33,14 +178,7 @@ window.gameScenarios = [
         description: "Mis zniknal z lozka. Zostala tylko wgniotka na poduszce.",
         dialogue: "",
         clue: "Na podlodze lezy brazowy klaczek.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "7 + 5 = ?", correctAnswer: 12 },
-            2: { prompt: "14 + 8 = ?", correctAnswer: 22 },
-            3: { prompt: "23 + 14 = ?", correctAnswer: 37 }
-          }
-        },
+        challenge: { type: "math", templateId: "add_small" },
         hotspot: { x: 19, y: 20 }
       },
       {
@@ -52,14 +190,7 @@ window.gameScenarios = [
         description: "Na podlodze widac slady. Jedne male, jedne bardzo duze.",
         dialogue: "",
         clue: "Duzy slad wyglada jak kapec taty.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "13 - 4 = ?", correctAnswer: 9 },
-            2: { prompt: "21 - 6 = ?", correctAnswer: 15 },
-            3: { prompt: "34 - 9 = ?", correctAnswer: 25 }
-          }
-        },
+        challenge: { type: "math", templateId: "subtract_small" },
         hotspot: { x: 36, y: 20 }
       },
       {
@@ -71,14 +202,7 @@ window.gameScenarios = [
         description: "Na stole leza okruszki. Czy mis byl na podwieczorku?",
         dialogue: "Tata: Ja? Nic nie wiem... moze mis byl bardzo glodny.",
         clue: "Obok talerza jest nitka od koca z tarasu.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "9 + 6 = ?", correctAnswer: 15 },
-            2: { prompt: "17 + 9 = ?", correctAnswer: 26 },
-            3: { prompt: "28 + 13 = ?", correctAnswer: 41 }
-          }
-        },
+        challenge: { type: "math", templateId: "add_medium" },
         hotspot: { x: 47, y: 26 }
       },
       {
@@ -90,14 +214,7 @@ window.gameScenarios = [
         description: "Pod stolikiem cos wystaje. To nie mis. To jego mala kokardka!",
         dialogue: "Siostra: Widzialam, jak tata cos niosl, ale bardzo sie spieszyl.",
         clue: "Kokardka prowadzi w strone tarasu.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "15 - 7 = ?", correctAnswer: 8 },
-            2: { prompt: "24 - 8 = ?", correctAnswer: 16 },
-            3: { prompt: "41 - 15 = ?", correctAnswer: 26 }
-          }
-        },
+        challenge: { type: "math", templateId: "subtract_small" },
         hotspot: { x: 19, y: 40 }
       },
       {
@@ -109,14 +226,7 @@ window.gameScenarios = [
         description: "Na krzesle lezy zwiniety koc. Wyglada na bardzo podejrzany.",
         dialogue: "Tata: To zwykly koc. Na pewno nie ukrywa misia. Chyba.",
         clue: "Na kocu jest trawka. Trzeba isc dalej do ogrodu.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "8 + 8 = ?", correctAnswer: 16 },
-            2: { prompt: "19 + 7 = ?", correctAnswer: 26 },
-            3: { prompt: "26 + 18 = ?", correctAnswer: 44 }
-          }
-        },
+        challenge: { type: "math", templateId: "add_medium" },
         hotspot: { x: 53, y: 42 }
       },
       {
@@ -128,14 +238,7 @@ window.gameScenarios = [
         description: "Na sciezce leza dwa ciasteczkowe okruszki. Ktos tedy szedl.",
         dialogue: "",
         clue: "Slad prowadzi obok domku na narzedzia.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "16 - 9 = ?", correctAnswer: 7 },
-            2: { prompt: "27 - 11 = ?", correctAnswer: 16 },
-            3: { prompt: "45 - 17 = ?", correctAnswer: 28 }
-          }
-        },
+        challenge: { type: "math", templateId: "subtract_medium" },
         hotspot: { x: 68, y: 42 }
       },
       {
@@ -147,14 +250,7 @@ window.gameScenarios = [
         description: "W srodku cos pluszowego... ale to tylko rekawica ogrodowa.",
         dialogue: "Siostra: Ha, juz myslalam, ze to on!",
         clue: "Przy drzwiach lezy guziczek od poduszki z hustawki.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "6 + 7 = ?", correctAnswer: 13 },
-            2: { prompt: "12 + 15 = ?", correctAnswer: 27 },
-            3: { prompt: "22 + 19 = ?", correctAnswer: 41 }
-          }
-        },
+        challenge: { type: "math", templateId: "add_small" },
         hotspot: { x: 71, y: 53 }
       },
       {
@@ -166,14 +262,7 @@ window.gameScenarios = [
         description: "Hustawka jeszcze lekko sie rusza. Jakby ktos przed chwila tu siedzial.",
         dialogue: "Tata: Eee... odpoczywalem tu tylko chwilke. Z misiem? Nie pamietam!",
         clue: "Obok hustawki lezy zlozony koc piknikowy.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "18 - 8 = ?", correctAnswer: 10 },
-            2: { prompt: "30 - 12 = ?", correctAnswer: 18 },
-            3: { prompt: "50 - 21 = ?", correctAnswer: 29 }
-          }
-        },
+        challenge: { type: "math", templateId: "subtract_medium" },
         hotspot: { x: 75, y: 66 }
       },
       {
@@ -185,14 +274,7 @@ window.gameScenarios = [
         description: "Pod kocem widac znajomy, pluszowy ksztalt... czy to juz to?",
         dialogue: "",
         clue: "To mis! Trzeba jeszcze ustalic, kto go tu zostawil.",
-        challenge: {
-          type: "math",
-          variants: {
-            1: { prompt: "11 + 4 = ?", correctAnswer: 15 },
-            2: { prompt: "16 + 13 = ?", correctAnswer: 29 },
-            3: { prompt: "24 + 25 = ?", correctAnswer: 49 }
-          }
-        },
+        challenge: { type: "math", templateId: "add_medium" },
         hotspot: { x: 83, y: 79 }
       },
       {

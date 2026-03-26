@@ -50,6 +50,14 @@ Aktualny kierunek projektu to `generic engine + dane scenariusza`.
 - scenariusze sa przechowywane osobno i opisuja tresc sprawy oraz kroki rozgrywki,
 - obecnie dane sa zapisane w module JS, ale format jest celowo zblizony do przyszlego JSON-a,
 - taka struktura pozwoli pozniej generowac nowe sprawy automatycznie i dolaczac je bez przebudowy logiki.
+- zadania matematyczne sa teraz generowane z szablonow przypisanych do klasy i kroku scenariusza.
+
+Edycja poziomow trudnosci:
+
+- profile klas znajduja sie w `data/scenarios.js` w sekcji `math.classProfiles`,
+- kazda klasa ma wlasne szablony, np. `add_small`, `add_medium`, `subtract_small`,
+- krok scenariusza wskazuje tylko `templateId`, dzieki czemu balans mozna zmieniac centralnie,
+- architektura jest otwarta na kolejne operacje, np. mnozenie i dzielenie, przez rozszerzenie generatora w `engine/math-generator.js`.
 
 Na przyszlosc warto tu dodac jeszcze jedna warstwe:
 
@@ -83,6 +91,7 @@ W katalogu glownym znajduje sie pierwsza grywalna wersja prototypu:
 - `styles.css`
 - `script.js`
 - `data/scenarios.js`
+- `engine/math-generator.js`
 - `engine/game-engine.js`
 
 Uruchomienie lokalne:
@@ -90,5 +99,6 @@ Uruchomienie lokalne:
 1. Otworz `index.html` w przegladarce.
 
 Mozna tez uruchomic prosty lokalny serwer, jesli bedzie potrzebny pozniej, ale na obecnym etapie nie jest to konieczne.
+
 
 

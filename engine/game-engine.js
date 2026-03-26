@@ -1,14 +1,5 @@
 (function () {
-  function shuffle(items) {
-    const copy = [...items];
-
-    for (let index = copy.length - 1; index > 0; index -= 1) {
-      const target = Math.floor(Math.random() * (index + 1));
-      [copy[index], copy[target]] = [copy[target], copy[index]];
-    }
-
-    return copy;
-  }
+  const MathChallengeGenerator = window.MathChallengeGenerator;
 
   class GameEngine {
     constructor({ scenario, selectedClass, elements }) {
@@ -20,6 +11,7 @@
         completedStepIds: [],
         foundClues: [],
         activeStepId: null,
+        generatedChallenges: {},
       };
     }
 
@@ -28,9 +20,24 @@
       this.state.completedStepIds = [];
       this.state.foundClues = [];
       this.state.activeStepId = null;
+      this.state.generatedChallenges = this.generateSessionChallenges();
 
       this.renderStaticScenarioContent();
       this.render();
+    }
+
+    generateSessionChallenges() {
+      const generated = {};
+
+      this.scenario.steps.forEach((step) => {
+        generated[step.id] = MathChallengeGenerator.generateChallenge({
+          scenario: this.scenario,
+          selectedClass: this.selectedClass,
+          challengeSpec: step.challenge,
+        });
+      });
+
+      return generated;
     }
 
     renderStaticScenarioContent() {
@@ -122,15 +129,16 @@
         this.elements.modalDialogue.classList.add("hidden");
       }
 
+      const sessionChallenge = this.state.generatedChallenges[step.id];
+
       if (step.challenge.type === "choice") {
         this.elements.questionLabel.textContent = "Wybierz odpowiedz";
-        this.elements.questionPrompt.textContent = step.challenge.prompt;
-        this.renderChoiceAnswers(step);
+        this.elements.questionPrompt.textContent = sessionChallenge.prompt;
+        this.renderChoiceAnswers(step, sessionChallenge);
       } else {
-        const challengeVariant = step.challenge.variants[this.selectedClass];
         this.elements.questionLabel.textContent = "Rozwiaz dzialanie";
-        this.elements.questionPrompt.textContent = challengeVariant.prompt;
-        this.renderMathAnswers(step, challengeVariant.correctAnswer);
+        this.elements.questionPrompt.textContent = sessionChallenge.prompt;
+        this.renderMathAnswers(step, sessionChallenge);
       }
 
       this.elements.modalBackdrop.classList.remove("hidden");
@@ -146,43 +154,30 @@
       }
     }
 
-    renderMathAnswers(step, correctAnswer) {
-      const options = this.createAnswerOptions(correctAnswer);
+    renderMathAnswers(step, sessionChallenge) {
       this.elements.answerGrid.innerHTML = "";
 
-      options.forEach((option) => {
+      sessionChallenge.options.forEach((option) => {
         const button = document.createElement("button");
         button.className = "answer-button";
         button.textContent = option;
-        button.addEventListener("click", () => this.handleMathAnswer(step, option, button, correctAnswer));
+        button.addEventListener("click", () =>
+          this.handleMathAnswer(step, option, button, sessionChallenge.correctAnswer)
+        );
         this.elements.answerGrid.appendChild(button);
       });
     }
 
-    renderChoiceAnswers(step) {
+    renderChoiceAnswers(step, sessionChallenge) {
       this.elements.answerGrid.innerHTML = "";
 
-      step.challenge.options.forEach((option) => {
+      sessionChallenge.options.forEach((option) => {
         const button = document.createElement("button");
         button.className = "answer-button";
         button.textContent = option;
-        button.addEventListener("click", () => this.handleChoiceAnswer(step, option, button));
+        button.addEventListener("click", () => this.handleChoiceAnswer(step, option, button, sessionChallenge));
         this.elements.answerGrid.appendChild(button);
       });
-    }
-
-    createAnswerOptions(correctAnswer) {
-      const options = new Set([correctAnswer]);
-
-      while (options.size < 3) {
-        const offset = Math.floor(Math.random() * 6) + 1;
-        const direction = Math.random() > 0.5 ? 1 : -1;
-        const candidate = correctAnswer + offset * direction;
-
-        if (candidate >= 0) options.add(candidate);
-      }
-
-      return shuffle(Array.from(options));
     }
 
     handleMathAnswer(step, option, button, correctAnswer) {
@@ -196,14 +191,14 @@
       }
     }
 
-    handleChoiceAnswer(step, option, button) {
-      if (option === step.challenge.correctAnswer) {
+    handleChoiceAnswer(step, option, button, sessionChallenge) {
+      if (option === sessionChallenge.correctAnswer) {
         button.classList.add("correct");
-        this.elements.feedbackMessage.textContent = step.challenge.successFeedback;
+        this.elements.feedbackMessage.textContent = sessionChallenge.successFeedback;
         this.completeStep(step);
       } else {
         button.classList.add("wrong");
-        this.elements.feedbackMessage.textContent = step.challenge.failureFeedback;
+        this.elements.feedbackMessage.textContent = sessionChallenge.failureFeedback;
       }
     }
 
