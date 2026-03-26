@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mali Detektywi Matematyczni</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <section class="screen start-screen" id="start-screen">
+        <div class="hero-card">
+          <p class="eyebrow">Matematyczna przygoda dla klas 1-3</p>
+          <h1>Mali Detektywi Matematyczni</h1>
+          <p class="hero-text">
+            Rozwiaz zagadke zaginionego misia. Szukaj tropow na mapie domu i ogrodu,
+            rozwiazuj dzialania i odkrywaj kolejne wskazowki.
+          </p>
+
+          <div class="case-preview">
+            <div class="preview-illustration" aria-hidden="true">
+              <div class="preview-house"></div>
+              <div class="preview-garden"></div>
+              <div class="preview-bear"></div>
+            </div>
+            <div class="preview-copy">
+              <h2>Sprawa: Gdzie zaginal mis?</h2>
+              <p>10 punktow. 10 zadan. Jedna domowa tajemnica do rozwiazania.</p>
+            </div>
+          </div>
+
+          <div class="class-picker" role="radiogroup" aria-label="Wybierz klase">
+            <button class="class-button selected" data-class="1">Klasa 1</button>
+            <button class="class-button" data-class="2">Klasa 2</button>
+            <button class="class-button" data-class="3">Klasa 3</button>
+          </div>
+
+          <button class="primary-button start-button" id="start-button">Rozpocznij sledztwo</button>
+        </div>
+      </section>
+
+      <section class="screen game-screen hidden" id="game-screen">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">Sprawa</p>
+            <h2>Gdzie zaginal mis?</h2>
+          </div>
+          <div class="top-bar-actions">
+            <div class="progress-pill">
+              <span>Postep</span>
+              <strong id="progress-label">0 / 10</strong>
+            </div>
+            <button class="secondary-button" id="restart-button">Nowa gra</button>
+          </div>
+        </header>
+
+        <main class="game-layout">
+          <section class="map-panel">
+            <div class="map-stage">
+              <div class="map-sky"></div>
+              <div class="map-house">
+                <div class="room room-bedroom">Pokoj</div>
+                <div class="room room-hall">Korytarz</div>
+                <div class="room room-kitchen">Kuchnia</div>
+                <div class="room room-living">Salon</div>
+                <div class="room room-terrace">Taras</div>
+              </div>
+              <div class="map-garden">
+                <div class="garden-path"></div>
+                <div class="garden-shed">Domek</div>
+                <div class="garden-swing">Hustawka</div>
+                <div class="garden-picnic">Koc</div>
+              </div>
+              <svg class="trail-lines" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M20 16 L37 16 L37 22 L46 22 L46 32 L56 32 L66 32 L66 39 L72 39 L72 46 L80 46 L80 52 L88 52" />
+              </svg>
+              <div class="hotspots" id="hotspots"></div>
+            </div>
+          </section>
+
+          <aside class="side-panel">
+            <div class="panel-card">
+              <p class="eyebrow">Twoj cel</p>
+              <h3>Znajdz misia i rozwiaz zagadke</h3>
+              <p id="status-text">Kliknij pulsujacy punkt na mapie, aby zaczac sledztwo.</p>
+            </div>
+
+            <div class="panel-card">
+              <p class="eyebrow">Wskazowki</p>
+              <ul class="clues-list" id="clues-list">
+                <li>Jeszcze nic tu nie ma. Pierwszy trop czeka w pokoju.</li>
+              </ul>
+            </div>
+          </aside>
+        </main>
+      </section>
+    </div>
+
+    <div class="modal-backdrop hidden" id="modal-backdrop">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="close-button" id="close-modal-button" aria-label="Zamknij">x</button>
+        <div class="modal-illustration" id="modal-illustration"></div>
+        <p class="eyebrow" id="modal-location"></p>
+        <h3 id="modal-title"></h3>
+        <p class="modal-description" id="modal-description"></p>
+        <p class="modal-dialogue hidden" id="modal-dialogue"></p>
+        <div class="question-card">
+          <p class="question-label">Rozwiaz dzialanie</p>
+          <p class="question-prompt" id="question-prompt"></p>
+          <div class="answer-grid" id="answer-grid"></div>
+          <p class="feedback-message" id="feedback-message"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop hidden" id="ending-backdrop">
+      <div class="modal-card ending-card">
+        <div class="ending-badge">Sprawa rozwiazana</div>
+        <h3>Super detektyw!</h3>
+        <p id="ending-text"></p>
+        <button class="primary-button" id="play-again-button">Zagraj jeszcze raz</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
