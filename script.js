@@ -33,6 +33,8 @@ const questionLabel = document.getElementById("question-label");
 const questionPrompt = document.getElementById("question-prompt");
 const answerGrid = document.getElementById("answer-grid");
 const feedbackMessage = document.getElementById("feedback-message");
+const questionActions = document.getElementById("question-actions");
+const nextStepButton = document.getElementById("next-step-button");
 const endingBackdrop = document.getElementById("ending-backdrop");
 const endingText = document.getElementById("ending-text");
 const modalIllustration = document.getElementById("modal-illustration");
@@ -54,6 +56,8 @@ const engineElements = {
   questionPrompt,
   answerGrid,
   feedbackMessage,
+  questionActions,
+  nextStepButton,
   endingBackdrop,
   endingText,
   modalIllustration,
@@ -124,6 +128,7 @@ startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", resetToStart);
 playAgainButton.addEventListener("click", resetToStart);
 closeModalButton.addEventListener("click", () => state.engine?.closeModal());
+nextStepButton.addEventListener("click", () => state.engine?.advanceAfterSuccess());
 
 renderScenarioPicker();
 syncScenarioPreview();

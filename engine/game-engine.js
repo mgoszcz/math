@@ -15,7 +15,11 @@
         foundClues: [],
         activeStepId: null,
         generatedChallenges: {},
+        pendingAdvanceStepId: null,
       };
+      this.pendingAdvanceTimeoutId = null;
+      this.pendingAdvanceIntervalId = null;
+      this.pendingAdvanceCountdown = 0;
     }
 
     start() {
@@ -24,6 +28,8 @@
       this.state.foundClues = [];
       this.state.activeStepId = null;
       this.state.generatedChallenges = this.generateSessionChallenges();
+      this.state.pendingAdvanceStepId = null;
+      this.clearPendingAdvance();
 
       this.renderStaticScenarioContent();
       this.render();
@@ -135,7 +141,10 @@
       this.elements.modalTitle.textContent = step.title;
       this.elements.modalDescription.textContent = step.description;
       this.elements.feedbackMessage.textContent = "";
+      this.elements.questionActions.classList.add("hidden");
       this.styleIllustration(step.kind);
+      this.resetNextButtonLabel();
+      this.clearPendingAdvance();
 
       if (step.dialogue) {
         this.elements.modalDialogue.textContent = step.dialogue;
@@ -199,7 +208,7 @@
       if (option === correctAnswer) {
         button.classList.add("correct");
         this.elements.feedbackMessage.textContent = `Brawo! ${step.clue}`;
-        this.completeStep(step);
+        this.prepareStepCompletion(step);
       } else {
         button.classList.add("wrong");
         this.elements.feedbackMessage.textContent = "To jeszcze nie ta odpowiedz. Sprobuj ponownie.";
@@ -210,11 +219,77 @@
       if (option === sessionChallenge.correctAnswer) {
         button.classList.add("correct");
         this.elements.feedbackMessage.textContent = sessionChallenge.successFeedback;
-        this.completeStep(step);
+        this.prepareStepCompletion(step);
       } else {
         button.classList.add("wrong");
         this.elements.feedbackMessage.textContent = sessionChallenge.failureFeedback;
       }
+    }
+
+    prepareStepCompletion(step) {
+      this.state.pendingAdvanceStepId = step.id;
+      this.lockAnswerButtons();
+      this.elements.questionActions.classList.remove("hidden");
+      this.startAdvanceCountdown();
+    }
+
+    lockAnswerButtons() {
+      this.elements.answerGrid.querySelectorAll("button").forEach((button) => {
+        button.disabled = true;
+      });
+    }
+
+    startAdvanceCountdown() {
+      this.clearPendingAdvance();
+      this.pendingAdvanceCountdown = 10;
+      this.updateNextButtonLabel();
+
+      this.pendingAdvanceIntervalId = window.setInterval(() => {
+        this.pendingAdvanceCountdown -= 1;
+
+        if (this.pendingAdvanceCountdown <= 0) {
+          this.advanceAfterSuccess();
+          return;
+        }
+
+        this.updateNextButtonLabel();
+      }, 1000);
+
+      this.pendingAdvanceTimeoutId = window.setTimeout(() => {
+        this.advanceAfterSuccess();
+      }, 10000);
+    }
+
+    updateNextButtonLabel() {
+      this.elements.nextStepButton.textContent = `Dalej (${this.pendingAdvanceCountdown})`;
+    }
+
+    resetNextButtonLabel() {
+      this.elements.nextStepButton.textContent = "Dalej";
+    }
+
+    clearPendingAdvance() {
+      if (this.pendingAdvanceTimeoutId) {
+        window.clearTimeout(this.pendingAdvanceTimeoutId);
+        this.pendingAdvanceTimeoutId = null;
+      }
+
+      if (this.pendingAdvanceIntervalId) {
+        window.clearInterval(this.pendingAdvanceIntervalId);
+        this.pendingAdvanceIntervalId = null;
+      }
+    }
+
+    advanceAfterSuccess() {
+      const pendingStepId = this.state.pendingAdvanceStepId;
+      if (!pendingStepId) return;
+
+      const step = this.scenario.steps.find((item) => item.id === pendingStepId);
+      if (!step) return;
+
+      this.state.pendingAdvanceStepId = null;
+      this.clearPendingAdvance();
+      this.completeStep(step);
     }
 
     completeStep(step) {
@@ -229,12 +304,14 @@
 
       window.setTimeout(() => {
         this.elements.modalBackdrop.classList.add("hidden");
+        this.elements.questionActions.classList.add("hidden");
+        this.resetNextButtonLabel();
         this.render();
 
         if (step.kind === "final") {
           this.showEnding();
         }
-      }, 1200);
+      }, 0);
     }
 
     showEnding() {
@@ -243,6 +320,10 @@
     }
 
     closeModal() {
+      this.clearPendingAdvance();
+      this.state.pendingAdvanceStepId = null;
+      this.elements.questionActions.classList.add("hidden");
+      this.resetNextButtonLabel();
       this.elements.modalBackdrop.classList.add("hidden");
     }
   }
