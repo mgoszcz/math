@@ -55,7 +55,7 @@ Aktualny kierunek projektu to `generic engine + dane scenariusza`.
 Edycja poziomow trudnosci:
 
 - profile klas znajduja sie w `data/scenarios.js` w sekcji `math.classProfiles`,
-- kazda klasa ma wlasne szablony, np. `add_small`, `add_medium`, `subtract_small`,
+- kazda klasa ma wlasne szablony, np. `add_small`, `subtract_small`, `mixed_easy`, `mixed_medium`,
 - krok scenariusza wskazuje tylko `templateId`, dzieki czemu balans mozna zmieniac centralnie,
 - architektura jest otwarta na kolejne operacje, np. mnozenie i dzielenie, przez rozszerzenie generatora w `engine/math-generator.js`.
 
@@ -99,6 +99,8 @@ Uruchomienie lokalne:
 1. Otworz `index.html` w przegladarce.
 
 Mozna tez uruchomic prosty lokalny serwer, jesli bedzie potrzebny pozniej, ale na obecnym etapie nie jest to konieczne.
+
+
 
 
 

@@ -33,12 +33,22 @@
     return copy;
   }
 
-  function pickOperation(operations) {
+  function pickOperation(operations, generationContext = {}) {
     if (!operations || operations.length === 0) {
       throw new Error("Brak zdefiniowanych operacji dla generatora.");
     }
 
-    const choice = operations[randomBetween(0, operations.length - 1)];
+    let choice;
+
+    if (operations.length === 1) {
+      [choice] = operations;
+    } else {
+      const sessionNumber = generationContext.sessionNumber ?? 1;
+      const templateUsageIndex = generationContext.templateUsageIndex ?? 0;
+      const choiceIndex = (sessionNumber + templateUsageIndex - 1) % operations.length;
+      choice = operations[choiceIndex];
+    }
+
     const operationKey = typeof choice === "string" ? choice : choice.type;
     const operation = operationRegistry[operationKey];
 
@@ -73,8 +83,8 @@
     return shuffle(Array.from(options));
   }
 
-  function generateArithmeticTask(template) {
-    const operation = pickOperation(template.operations);
+  function generateArithmeticTask(template, generationContext) {
+    const operation = pickOperation(template.operations, generationContext);
     const leftRange = template.operands?.left ?? { min: 0, max: 10 };
     const rightRange = template.operands?.right ?? { min: 0, max: 10 };
     const resultRange = template.result ?? {};
@@ -107,7 +117,7 @@
     throw new Error("Nie udalo sie wygenerowac poprawnego zadania matematycznego.");
   }
 
-  function generateChallenge({ scenario, selectedClass, challengeSpec }) {
+  function generateChallenge({ scenario, selectedClass, challengeSpec, generationContext }) {
     if (challengeSpec.type === "choice") {
       return {
         prompt: challengeSpec.prompt,
@@ -132,7 +142,7 @@
       throw new Error(`Nieobslugiwany rodzaj generatora: ${template.kind}`);
     }
 
-    return generateArithmeticTask(template);
+    return generateArithmeticTask(template, generationContext);
   }
 
   window.MathChallengeGenerator = {

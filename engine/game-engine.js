@@ -3,9 +3,12 @@
 
   class GameEngine {
     constructor({ scenario, selectedClass, elements }) {
+      GameEngine.sessionCounter = (GameEngine.sessionCounter ?? 0) + 1;
+
       this.scenario = scenario;
       this.selectedClass = selectedClass;
       this.elements = elements;
+      this.sessionNumber = GameEngine.sessionCounter;
       this.state = {
         currentStepId: scenario.steps[0]?.id ?? null,
         completedStepIds: [],
@@ -28,12 +31,24 @@
 
     generateSessionChallenges() {
       const generated = {};
+      const templateUsageCounts = {};
 
       this.scenario.steps.forEach((step) => {
+        const templateId = step.challenge.templateId;
+        const templateUsageIndex = templateId ? (templateUsageCounts[templateId] ?? 0) : 0;
+
+        if (templateId) {
+          templateUsageCounts[templateId] = templateUsageIndex + 1;
+        }
+
         generated[step.id] = MathChallengeGenerator.generateChallenge({
           scenario: this.scenario,
           selectedClass: this.selectedClass,
           challengeSpec: step.challenge,
+          generationContext: {
+            sessionNumber: this.sessionNumber,
+            templateUsageIndex,
+          },
         });
       });
 

@@ -55,6 +55,28 @@ window.gameScenarios = [
               result: { min: 0, max: 20 },
               allowNegativeResult: false,
               answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
+            },
+            mixed_easy: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 4, max: 14 },
+                right: { min: 1, max: 8 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 4, minValue: 0 }
+            },
+            mixed_medium: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 8, max: 18 },
+                right: { min: 2, max: 9 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
             }
           }
         },
@@ -102,6 +124,28 @@ window.gameScenarios = [
               result: { min: 0, max: 30 },
               allowNegativeResult: false,
               answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
+            },
+            mixed_easy: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 8, max: 20 },
+                right: { min: 3, max: 12 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 6, minValue: 0 }
+            },
+            mixed_medium: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 12, max: 26 },
+                right: { min: 4, max: 14 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
             }
           }
         },
@@ -144,6 +188,28 @@ window.gameScenarios = [
               operations: ["subtract"],
               operands: {
                 left: { min: 24, max: 50 },
+                right: { min: 6, max: 20 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 3, deltaMax: 9, minValue: 0 }
+            },
+            mixed_easy: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 12, max: 30 },
+                right: { min: 5, max: 16 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 8, minValue: 0 }
+            },
+            mixed_medium: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 18, max: 40 },
                 right: { min: 6, max: 20 }
               },
               result: { min: 0, max: 50 },
@@ -202,7 +268,7 @@ window.gameScenarios = [
         description: "Na stole leza okruszki. Czy mis byl na podwieczorku?",
         dialogue: "Tata: Ja? Nic nie wiem... moze mis byl bardzo glodny.",
         clue: "Obok talerza jest nitka od koca z tarasu.",
-        challenge: { type: "math", templateId: "add_medium" },
+        challenge: { type: "math", templateId: "mixed_easy" },
         hotspot: { x: 47, y: 26 }
       },
       {
@@ -226,7 +292,7 @@ window.gameScenarios = [
         description: "Na krzesle lezy zwiniety koc. Wyglada na bardzo podejrzany.",
         dialogue: "Tata: To zwykly koc. Na pewno nie ukrywa misia. Chyba.",
         clue: "Na kocu jest trawka. Trzeba isc dalej do ogrodu.",
-        challenge: { type: "math", templateId: "add_medium" },
+        challenge: { type: "math", templateId: "mixed_medium" },
         hotspot: { x: 53, y: 42 }
       },
       {
@@ -238,7 +304,7 @@ window.gameScenarios = [
         description: "Na sciezce leza dwa ciasteczkowe okruszki. Ktos tedy szedl.",
         dialogue: "",
         clue: "Slad prowadzi obok domku na narzedzia.",
-        challenge: { type: "math", templateId: "subtract_medium" },
+        challenge: { type: "math", templateId: "mixed_medium" },
         hotspot: { x: 68, y: 42 }
       },
       {
@@ -274,7 +340,7 @@ window.gameScenarios = [
         description: "Pod kocem widac znajomy, pluszowy ksztalt... czy to juz to?",
         dialogue: "",
         clue: "To mis! Trzeba jeszcze ustalic, kto go tu zostawil.",
-        challenge: { type: "math", templateId: "add_medium" },
+        challenge: { type: "math", templateId: "mixed_easy" },
         hotspot: { x: 83, y: 79 }
       },
       {
