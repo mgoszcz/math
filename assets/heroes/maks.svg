@@ -1,0 +1,18 @@
+<svg width="220" height="240" viewBox="0 0 220 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="220" height="240" rx="48" fill="#F3EDFF"/>
+  <circle cx="110" cy="108" r="74" fill="#FFE1BE"/>
+  <path d="M48 100C48 61.8924 78.8924 31 117 31C155.108 31 186 61.8924 186 100V104C186 116.15 176.15 126 164 126H70C57.8497 126 48 116.15 48 104V100Z" fill="#D4B06B"/>
+  <path d="M62 191C62 167.252 81.2518 148 105 148H115C138.748 148 158 167.252 158 191V212H62V191Z" fill="#8D7DE0"/>
+  <circle cx="80" cy="111" r="8.5" fill="#FFD4AB"/>
+  <circle cx="140" cy="111" r="8.5" fill="#FFD4AB"/>
+  <ellipse cx="92" cy="114" rx="4.5" ry="5.5" fill="#2A2532"/>
+  <ellipse cx="128" cy="114" rx="4.5" ry="5.5" fill="#2A2532"/>
+  <path d="M95 136C101.5 143 118.5 143 125 136" stroke="#B76A5D" stroke-width="5" stroke-linecap="round"/>
+  <path d="M78 95C82.5 91.5 88.5 90 94 92" stroke="#2A2532" stroke-width="4" stroke-linecap="round"/>
+  <path d="M126 92C131.5 90 137.5 91.5 142 95" stroke="#2A2532" stroke-width="4" stroke-linecap="round"/>
+  <path d="M57 95C57 70.6995 76.6995 51 101 51H119C143.301 51 163 70.6995 163 95V112C163 125.255 152.255 136 139 136H81C67.7452 136 57 125.255 57 112V95Z" fill="#F7C99C"/>
+  <path d="M53 94C53 65.8335 75.8335 43 104 43H119C147.166 43 170 65.8335 170 94V98H53V94Z" fill="#D4B06B"/>
+  <path d="M78 62L93 75L108 58L123 75L139 60L152 74" stroke="#E3C989" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M76 163C86 154 95 150 106 150H114C125 150 134 154 144 163L158 212H62L76 163Z" fill="#8D7DE0"/>
+  <path d="M84 176H136" stroke="#F3EDFF" stroke-width="6" stroke-linecap="round"/>
+</svg>

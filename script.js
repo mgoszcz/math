@@ -1,9 +1,36 @@
 const scenarios = window.gameScenarios ?? [];
 const GameEngine = window.GameEngine;
+const heroes = [
+  {
+    id: "zosia",
+    name: "Zosia",
+    copy: "Spokojna tropicielka, ktora lubi zagladac tam, gdzie inni nie patrza.",
+    avatarSrc: "./assets/heroes/zosia.svg",
+  },
+  {
+    id: "ania",
+    name: "Ania",
+    copy: "Wesola detektywka z rudymi wlosami i swietnym okiem do szczegolow.",
+    avatarSrc: "./assets/heroes/ania.svg",
+  },
+  {
+    id: "leo",
+    name: "Leo",
+    copy: "Bystry detektyw, ktory lubi zadawac pytania i szybko laczy tropy.",
+    avatarSrc: "./assets/heroes/leo.svg",
+  },
+  {
+    id: "maks",
+    name: "Maks",
+    copy: "Ruchliwy poszukiwacz z jasnymi wlosami i odwaga do nowych spraw.",
+    avatarSrc: "./assets/heroes/maks.svg",
+  },
+];
 
 const state = {
   selectedClass: 1,
   selectedScenarioId: scenarios[0]?.id ?? null,
+  selectedHeroId: heroes[0]?.id ?? null,
   engine: null,
 };
 
@@ -15,6 +42,7 @@ const playAgainButton = document.getElementById("play-again-button");
 const closeModalButton = document.getElementById("close-modal-button");
 const classButtons = document.querySelectorAll(".class-button");
 const scenarioButtons = document.getElementById("scenario-buttons");
+const heroOptions = document.getElementById("hero-options");
 const previewTitle = document.getElementById("preview-title");
 const previewSubtitle = document.getElementById("preview-subtitle");
 const heroText = document.getElementById("hero-text");
@@ -39,6 +67,9 @@ const endingBackdrop = document.getElementById("ending-backdrop");
 const endingText = document.getElementById("ending-text");
 const modalIllustration = document.getElementById("modal-illustration");
 const trailPath = document.getElementById("trail-path");
+const selectedHeroAvatar = document.getElementById("selected-hero-avatar");
+const selectedHeroName = document.getElementById("selected-hero-name");
+const selectedHeroCopy = document.getElementById("selected-hero-copy");
 
 const engineElements = {
   caseTitle,
@@ -68,6 +99,10 @@ function getSelectedScenario() {
   return scenarios.find((scenario) => scenario.id === state.selectedScenarioId) ?? scenarios[0];
 }
 
+function getSelectedHero() {
+  return heroes.find((hero) => hero.id === state.selectedHeroId) ?? heroes[0];
+}
+
 function renderScenarioPicker() {
   scenarioButtons.innerHTML = "";
 
@@ -84,6 +119,38 @@ function renderScenarioPicker() {
   });
 }
 
+function renderHeroPicker() {
+  heroOptions.innerHTML = "";
+
+  heroes.forEach((hero) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = `hero-option ${hero.id === state.selectedHeroId ? "selected" : ""}`;
+
+    const avatar = document.createElement("img");
+    avatar.className = "hero-avatar";
+    avatar.src = hero.avatarSrc;
+    avatar.alt = `Portret bohatera ${hero.name}`;
+
+    const name = document.createElement("h3");
+    name.className = "hero-option-name";
+    name.textContent = hero.name;
+
+    const copy = document.createElement("p");
+    copy.className = "hero-option-copy";
+    copy.textContent = hero.copy;
+
+    button.append(avatar, name, copy);
+    button.addEventListener("click", () => {
+      state.selectedHeroId = hero.id;
+      renderHeroPicker();
+      syncSelectedHeroSummary();
+    });
+
+    heroOptions.appendChild(button);
+  });
+}
+
 function syncScenarioPreview() {
   const scenario = getSelectedScenario();
   if (!scenario) return;
@@ -91,6 +158,16 @@ function syncScenarioPreview() {
   previewTitle.textContent = `Sprawa: ${scenario.title}`;
   previewSubtitle.textContent = scenario.subtitle;
   heroText.textContent = scenario.intro;
+}
+
+function syncSelectedHeroSummary() {
+  const hero = getSelectedHero();
+  if (!hero) return;
+
+  selectedHeroName.textContent = hero.name;
+  selectedHeroCopy.textContent = hero.copy;
+  selectedHeroAvatar.src = hero.avatarSrc;
+  selectedHeroAvatar.alt = `Portret bohatera ${hero.name}`;
 }
 
 function startGame() {
@@ -131,4 +208,6 @@ closeModalButton.addEventListener("click", () => state.engine?.closeModal());
 nextStepButton.addEventListener("click", () => state.engine?.advanceAfterSuccess());
 
 renderScenarioPicker();
+renderHeroPicker();
 syncScenarioPreview();
+syncSelectedHeroSummary();
