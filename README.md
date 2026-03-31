@@ -82,6 +82,7 @@ Szczegółowy plan i projekt gry znajdują się w dokumentach:
 
 - [Plan projektu](D:\GitRepo\math\docs\plan.md)
 - [Projekt gry](D:\GitRepo\math\docs\game-design.md)
+- [Format scenariusza](D:\GitRepo\math\docs\scenario-format.md)
 
 ## Lokalny prototyp
 
@@ -99,6 +100,7 @@ Uruchomienie lokalne:
 1. Otworz `index.html` w przegladarce.
 
 Mozna tez uruchomic prosty lokalny serwer, jesli bedzie potrzebny pozniej, ale na obecnym etapie nie jest to konieczne.
+
 
 
 
