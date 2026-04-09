@@ -65,11 +65,28 @@
       this.elements.caseTitle.textContent = this.scenario.title;
       this.elements.goalTitle.textContent = this.scenario.goalText;
       this.elements.trailPath.setAttribute("d", this.scenario.map.trailPath);
+      this.applyMapArtwork();
 
       this.scenario.map.areas.forEach((area) => {
         const areaElement = document.querySelector(`[data-map-area="${area.key}"]`);
         if (areaElement) areaElement.textContent = area.label;
       });
+    }
+
+    applyMapArtwork() {
+      const mapStage = this.elements.mapStage;
+      if (!mapStage) return;
+
+      const backgroundImage = this.scenario.map?.backgroundImage;
+
+      if (backgroundImage) {
+        mapStage.style.setProperty("--map-artwork", `url("${backgroundImage}")`);
+        mapStage.classList.add("has-illustrated-background");
+        return;
+      }
+
+      mapStage.style.removeProperty("--map-artwork");
+      mapStage.classList.remove("has-illustrated-background");
     }
 
     render() {
@@ -85,13 +102,18 @@
       this.scenario.steps.forEach((step) => {
         const button = document.createElement("button");
         const status = this.getStepStatus(step.id);
+        const iconSymbol = status === "completed" ? "✓" : status === "available" ? "?" : "";
 
         button.className = `hotspot ${status}`;
         button.style.left = `${step.hotspot.x}%`;
         button.style.top = `${step.hotspot.y}%`;
         button.style.transform = "translate(-50%, -50%)";
         button.disabled = status === "locked";
-        button.innerHTML = `<span class="hotspot-label">${step.id}. ${step.shortLabel}</span>`;
+        button.setAttribute("aria-label", `${step.id}. ${step.shortLabel}`);
+        button.innerHTML = `
+          <span class="hotspot-step-number">${step.id}</span>
+          <span class="hotspot-icon" aria-hidden="true">${iconSymbol}</span>
+        `;
 
         if (status !== "locked") {
           button.addEventListener("click", () => this.openStep(step.id));

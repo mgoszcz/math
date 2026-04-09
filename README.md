@@ -83,6 +83,7 @@ Szczegółowy plan i projekt gry znajdują się w dokumentach:
 - [Plan projektu](D:\GitRepo\math\docs\plan.md)
 - [Projekt gry](D:\GitRepo\math\docs\game-design.md)
 - [Format scenariusza](D:\GitRepo\math\docs\scenario-format.md)
+- [Prompty tla mapy](D:\GitRepo\math\docs\map-background-prompts.md)
 
 ## Lokalny prototyp
 

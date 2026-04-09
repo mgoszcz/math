@@ -221,8 +221,9 @@ window.gameScenarios = [
       }
     },
     map: {
+      backgroundImage: "./assets/backgrounds/home-garden-board.png",
       trailPath:
-        "M20 16 L37 16 L37 22 L46 22 L46 32 L56 32 L66 32 L66 39 L72 39 L72 46 L80 46 L80 52 L88 52",
+        "M11 22 L29 28 L12 62 L41 63 L46 27 L61 46 L77 19 L62 17 L80 79 L67 52",
       areas: [
         { key: "bedroom", className: "room room-bedroom", label: "Pokoj" },
         { key: "hall", className: "room room-hall", label: "Korytarz" },
@@ -245,7 +246,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Na podlodze lezy brazowy klaczek.",
         challenge: { type: "math", templateId: "add_small" },
-        hotspot: { x: 19, y: 20 }
+        hotspot: { x: 11, y: 22 }
       },
       {
         id: 2,
@@ -257,7 +258,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Duzy slad wyglada jak kapec taty.",
         challenge: { type: "math", templateId: "subtract_small" },
-        hotspot: { x: 36, y: 20 }
+        hotspot: { x: 29, y: 28 }
       },
       {
         id: 3,
@@ -269,7 +270,7 @@ window.gameScenarios = [
         dialogue: "Tata: Ja? Nic nie wiem... moze mis byl bardzo glodny.",
         clue: "Obok talerza jest nitka od koca z tarasu.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 47, y: 26 }
+        hotspot: { x: 12, y: 62 }
       },
       {
         id: 4,
@@ -281,7 +282,7 @@ window.gameScenarios = [
         dialogue: "Siostra: Widzialam, jak tata cos niosl, ale bardzo sie spieszyl.",
         clue: "Kokardka prowadzi w strone tarasu.",
         challenge: { type: "math", templateId: "subtract_small" },
-        hotspot: { x: 19, y: 40 }
+        hotspot: { x: 41, y: 63 }
       },
       {
         id: 5,
@@ -293,7 +294,7 @@ window.gameScenarios = [
         dialogue: "Tata: To zwykly koc. Na pewno nie ukrywa misia. Chyba.",
         clue: "Na kocu jest trawka. Trzeba isc dalej do ogrodu.",
         challenge: { type: "math", templateId: "mixed_medium" },
-        hotspot: { x: 53, y: 42 }
+        hotspot: { x: 46, y: 27 }
       },
       {
         id: 6,
@@ -305,7 +306,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Slad prowadzi obok domku na narzedzia.",
         challenge: { type: "math", templateId: "mixed_medium" },
-        hotspot: { x: 68, y: 42 }
+        hotspot: { x: 61, y: 46 }
       },
       {
         id: 7,
@@ -317,7 +318,7 @@ window.gameScenarios = [
         dialogue: "Siostra: Ha, juz myslalam, ze to on!",
         clue: "Przy drzwiach lezy guziczek od poduszki z hustawki.",
         challenge: { type: "math", templateId: "add_small" },
-        hotspot: { x: 71, y: 53 }
+        hotspot: { x: 77, y: 19 }
       },
       {
         id: 8,
@@ -329,7 +330,7 @@ window.gameScenarios = [
         dialogue: "Tata: Eee... odpoczywalem tu tylko chwilke. Z misiem? Nie pamietam!",
         clue: "Obok hustawki lezy zlozony koc piknikowy.",
         challenge: { type: "math", templateId: "subtract_medium" },
-        hotspot: { x: 75, y: 66 }
+        hotspot: { x: 62, y: 17 }
       },
       {
         id: 9,
@@ -341,7 +342,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "To mis! Trzeba jeszcze ustalic, kto go tu zostawil.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 83, y: 79 }
+        hotspot: { x: 80, y: 79 }
       },
       {
         id: 10,
@@ -360,7 +361,7 @@ window.gameScenarios = [
           successFeedback: "Tak! To tata ostatni mial misia.",
           failureFeedback: "To nie ten trop. Sprawdz jeszcze raz."
         },
-        hotspot: { x: 89, y: 90 }
+        hotspot: { x: 69, y: 58 }
       }
     ]
   },
@@ -586,8 +587,9 @@ window.gameScenarios = [
       }
     },
     map: {
+      backgroundImage: "./assets/backgrounds/home-garden-board.png",
       trailPath:
-        "M20 16 L37 16 L37 22 L46 22 L46 32 L56 32 L66 32 L66 39 L72 39 L72 46 L80 46 L80 52 L88 52",
+        "M12 62 L41 63 L29 28 L11 22 L46 27 L61 46 L77 19 L62 17 L80 79 L67 52",
       areas: [
         { key: "bedroom", className: "room room-bedroom", label: "Pokoj" },
         { key: "hall", className: "room room-hall", label: "Korytarz" },
@@ -610,7 +612,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Okruszki prowadza w strone salonu.",
         challenge: { type: "math", templateId: "add_small" },
-        hotspot: { x: 47, y: 26 }
+        hotspot: { x: 12, y: 62 }
       },
       {
         id: 2,
@@ -622,7 +624,7 @@ window.gameScenarios = [
         dialogue: "Siostra: Ja nic nie ruszalam. Tylko czytalam ksiazke. Naprawde.",
         clue: "Na stoliku brakuje szklanki mleka.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 19, y: 40 }
+        hotspot: { x: 41, y: 63 }
       },
       {
         id: 3,
@@ -634,7 +636,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Te slady wygladaja bardzo doroslo.",
         challenge: { type: "math", templateId: "subtract_small" },
-        hotspot: { x: 36, y: 20 }
+        hotspot: { x: 29, y: 28 }
       },
       {
         id: 4,
@@ -646,7 +648,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Serwetka pachnie kakao i prowadzi na taras.",
         challenge: { type: "math", templateId: "mixed_medium" },
-        hotspot: { x: 19, y: 20 }
+        hotspot: { x: 11, y: 22 }
       },
       {
         id: 5,
@@ -658,7 +660,7 @@ window.gameScenarios = [
         dialogue: "Tata: Kubek? To tylko zwykly kubek. Wcale nie po ciastku.",
         clue: "Obok kubka lezy papierek po czekoladzie.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 53, y: 42 }
+        hotspot: { x: 46, y: 27 }
       },
       {
         id: 6,
@@ -670,7 +672,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Slad prowadzi do domku na narzedzia, ale chyba to falszywy trop.",
         challenge: { type: "math", templateId: "subtract_medium" },
-        hotspot: { x: 68, y: 42 }
+        hotspot: { x: 61, y: 46 }
       },
       {
         id: 7,
@@ -682,7 +684,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "To chyba tylko stary slad. Trzeba szukac dalej przy hustawce.",
         challenge: { type: "math", templateId: "add_medium" },
-        hotspot: { x: 71, y: 53 }
+        hotspot: { x: 77, y: 19 }
       },
       {
         id: 8,
@@ -694,7 +696,7 @@ window.gameScenarios = [
         dialogue: "Tata: Eee... usiadlem tu tylko na chwilke. Bez ciastka. Chyba.",
         clue: "Na kocu obok hustawki jest pusty talerzyk.",
         challenge: { type: "math", templateId: "mixed_medium" },
-        hotspot: { x: 75, y: 66 }
+        hotspot: { x: 62, y: 17 }
       },
       {
         id: 9,
@@ -706,7 +708,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Ktos zjadl ciastko tutaj i bardzo sie staral wygladac niewinnie.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 83, y: 79 }
+        hotspot: { x: 80, y: 79 }
       },
       {
         id: 10,
@@ -725,7 +727,7 @@ window.gameScenarios = [
           successFeedback: "Tak! To tata zjadl ostatnie ciastko.",
           failureFeedback: "To jeszcze nie ten winowajca."
         },
-        hotspot: { x: 89, y: 90 }
+        hotspot: { x: 69, y: 58 }
       }
     ]
   },
@@ -951,8 +953,9 @@ window.gameScenarios = [
       }
     },
     map: {
+      backgroundImage: "./assets/backgrounds/home-garden-board.png",
       trailPath:
-        "M20 16 L37 16 L37 22 L46 22 L46 32 L56 32 L66 32 L66 39 L72 39 L72 46 L80 46 L80 52 L88 52",
+        "M12 62 L29 28 L11 22 L41 63 L46 27 L61 46 L77 19 L62 17 L80 79 L67 52",
       areas: [
         { key: "bedroom", className: "room room-bedroom", label: "Pokoj" },
         { key: "hall", className: "room room-hall", label: "Korytarz" },
@@ -975,7 +978,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Na podlodze lezy mala klamerka do prania.",
         challenge: { type: "math", templateId: "add_small" },
-        hotspot: { x: 47, y: 26 }
+        hotspot: { x: 12, y: 62 }
       },
       {
         id: 2,
@@ -987,7 +990,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Nitka prowadzi do pokoju dziecka.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 36, y: 20 }
+        hotspot: { x: 29, y: 28 }
       },
       {
         id: 3,
@@ -996,10 +999,10 @@ window.gameScenarios = [
         kind: "character",
         location: "Pokoj dziecka",
         description: "Pod lozkiem sa klocki, ale skarpetki brak.",
-        dialogue: "Siostra: Widzia�am cos bialego, ale polecialo dalej jak wiatr!",
+        dialogue: "Siostra: WidziaÄąâ€šam cos bialego, ale polecialo dalej jak wiatr!",
         clue: "To cos moglo poleciec w strone salonu.",
         challenge: { type: "math", templateId: "subtract_small" },
-        hotspot: { x: 19, y: 20 }
+        hotspot: { x: 11, y: 22 }
       },
       {
         id: 4,
@@ -1011,7 +1014,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Skoro prawa skarpetka jest tutaj, lewa pewnie poleciala dalej na taras.",
         challenge: { type: "math", templateId: "mixed_medium" },
-        hotspot: { x: 19, y: 40 }
+        hotspot: { x: 41, y: 63 }
       },
       {
         id: 5,
@@ -1020,10 +1023,10 @@ window.gameScenarios = [
         kind: "character",
         location: "Taras",
         description: "Na suszarce brakuje jednego miejsca po skarpetce.",
-        dialogue: "Tata: Wiesza�em pranie. Potem troche zawialo... ale nie bardzo!",
+        dialogue: "Tata: WieszaÄąâ€šem pranie. Potem troche zawialo... ale nie bardzo!",
         clue: "Wiatr mogl zdmuchnac skarpetke do ogrodu.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 53, y: 42 }
+        hotspot: { x: 46, y: 27 }
       },
       {
         id: 6,
@@ -1035,7 +1038,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "To wyglada jak slad po praniu rozwieszonym na tarasie.",
         challenge: { type: "math", templateId: "subtract_medium" },
-        hotspot: { x: 68, y: 42 }
+        hotspot: { x: 61, y: 46 }
       },
       {
         id: 7,
@@ -1047,7 +1050,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "Skarpetki tu nie ma. Trzeba sprawdzic hustawke.",
         challenge: { type: "math", templateId: "add_medium" },
-        hotspot: { x: 71, y: 53 }
+        hotspot: { x: 77, y: 19 }
       },
       {
         id: 8,
@@ -1059,7 +1062,7 @@ window.gameScenarios = [
         dialogue: "Tata: Eee... cos tu chyba przylecialo, ale zaraz odlecialo dalej.",
         clue: "Nitka prowadzi do koca piknikowego.",
         challenge: { type: "math", templateId: "mixed_medium" },
-        hotspot: { x: 75, y: 66 }
+        hotspot: { x: 62, y: 17 }
       },
       {
         id: 9,
@@ -1071,7 +1074,7 @@ window.gameScenarios = [
         dialogue: "",
         clue: "To skarpetka! Trzeba jeszcze ustalic, jak tu trafila.",
         challenge: { type: "math", templateId: "mixed_easy" },
-        hotspot: { x: 83, y: 79 }
+        hotspot: { x: 80, y: 79 }
       },
       {
         id: 10,
@@ -1090,7 +1093,7 @@ window.gameScenarios = [
           successFeedback: "Tak! Wiatr zdmuchnal skarpetke z tarasu.",
           failureFeedback: "To jeszcze nie pasuje do tropow."
         },
-        hotspot: { x: 89, y: 90 }
+        hotspot: { x: 69, y: 58 }
       }
     ]
   }

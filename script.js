@@ -5,25 +5,25 @@ const heroes = [
     id: "zosia",
     name: "Zosia",
     copy: "Spokojna tropicielka, ktora lubi zagladac tam, gdzie inni nie patrza.",
-    avatarSrc: "./assets/heroes/zosia.svg",
+    avatarSrc: "./assets/heroes/zosia.jpg",
   },
   {
     id: "ania",
     name: "Ania",
     copy: "Wesola detektywka z rudymi wlosami i swietnym okiem do szczegolow.",
-    avatarSrc: "./assets/heroes/ania.svg",
+    avatarSrc: "./assets/heroes/ania.jpg",
   },
   {
     id: "leo",
     name: "Leo",
     copy: "Bystry detektyw, ktory lubi zadawac pytania i szybko laczy tropy.",
-    avatarSrc: "./assets/heroes/leo.svg",
+    avatarSrc: "./assets/heroes/leo.jpg",
   },
   {
     id: "maks",
     name: "Maks",
     copy: "Ruchliwy poszukiwacz z jasnymi wlosami i odwaga do nowych spraw.",
-    avatarSrc: "./assets/heroes/maks.svg",
+    avatarSrc: "./assets/heroes/maks.jpg",
   },
 ];
 
@@ -52,6 +52,7 @@ const progressLabel = document.getElementById("progress-label");
 const statusText = document.getElementById("status-text");
 const cluesList = document.getElementById("clues-list");
 const hotspots = document.getElementById("hotspots");
+const mapStage = document.getElementById("map-stage");
 const modalBackdrop = document.getElementById("modal-backdrop");
 const modalLocation = document.getElementById("modal-location");
 const modalTitle = document.getElementById("modal-title");
@@ -78,6 +79,7 @@ const engineElements = {
   statusText,
   cluesList,
   hotspots,
+  mapStage,
   modalBackdrop,
   modalLocation,
   modalTitle,
@@ -96,7 +98,10 @@ const engineElements = {
 };
 
 function getSelectedScenario() {
-  return scenarios.find((scenario) => scenario.id === state.selectedScenarioId) ?? scenarios[0];
+  return (
+    scenarios.find((scenario) => scenario.id === state.selectedScenarioId) ??
+    scenarios[0]
+  );
 }
 
 function getSelectedHero() {
@@ -205,7 +210,9 @@ startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", resetToStart);
 playAgainButton.addEventListener("click", resetToStart);
 closeModalButton.addEventListener("click", () => state.engine?.closeModal());
-nextStepButton.addEventListener("click", () => state.engine?.advanceAfterSuccess());
+nextStepButton.addEventListener("click", () =>
+  state.engine?.advanceAfterSuccess(),
+);
 
 renderScenarioPicker();
 renderHeroPicker();
