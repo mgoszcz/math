@@ -67,6 +67,8 @@ const nextStepButton = document.getElementById("next-step-button");
 const endingBackdrop = document.getElementById("ending-backdrop");
 const endingText = document.getElementById("ending-text");
 const modalIllustration = document.getElementById("modal-illustration");
+const modalPortrait = document.getElementById("modal-portrait");
+const modalIllustrationBadge = document.getElementById("modal-illustration-badge");
 const trailPath = document.getElementById("trail-path");
 const selectedHeroAvatar = document.getElementById("selected-hero-avatar");
 const selectedHeroName = document.getElementById("selected-hero-name");
@@ -94,6 +96,8 @@ const engineElements = {
   endingBackdrop,
   endingText,
   modalIllustration,
+  modalPortrait,
+  modalIllustrationBadge,
   trailPath,
 };
 

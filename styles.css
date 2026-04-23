@@ -1146,6 +1146,22 @@ h2 {
   overflow: hidden;
 }
 
+.modal-illustration.is-tata {
+  background: linear-gradient(135deg, #f6d4b8, #dcecf9);
+}
+
+.modal-illustration.is-siostra {
+  background: linear-gradient(135deg, #f9d8dd, #d9eef9);
+}
+
+.modal-illustration.is-clue {
+  background: linear-gradient(135deg, #f7ddb4, #d6ebcf);
+}
+
+.modal-illustration.is-final {
+  background: linear-gradient(135deg, #f6de90, #d8ebc7);
+}
+
 .modal-illustration::before,
 .modal-illustration::after {
   content: "";
@@ -1167,6 +1183,34 @@ h2 {
   left: 18px;
   top: 24px;
   background: rgba(201, 90, 70, 0.18);
+}
+
+.modal-portrait {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  width: 180px;
+  height: 150px;
+  max-width: 46%;
+  max-height: 82%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 14px 22px rgba(52, 53, 48, 0.16));
+  z-index: 2;
+}
+
+.modal-illustration-badge {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 250, 242, 0.86);
+  color: var(--berry);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  box-shadow: 0 8px 18px rgba(35, 49, 58, 0.08);
+  z-index: 2;
 }
 
 .modal-description,
@@ -1347,6 +1391,22 @@ h2 {
 
   .answer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .modal-portrait {
+    right: 8px;
+    bottom: 8px;
+    width: 140px;
+    height: 120px;
+    max-width: 48%;
+    max-height: 78%;
+  }
+
+  .modal-illustration-badge {
+    left: 12px;
+    bottom: 12px;
+    padding: 8px 12px;
+    font-size: 0.92rem;
   }
 
   .hero-options,

@@ -1,0 +1,26 @@
+<svg width="360" height="260" viewBox="0 0 360 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="360" height="260" rx="36" fill="#F7E6EF"/>
+  <circle cx="70" cy="54" r="20" fill="#FFE7A0" opacity=".85"/>
+  <ellipse cx="181" cy="234" rx="86" ry="12" fill="#000" opacity=".08"/>
+  <path d="M111 228C111 182.161 148.161 145 194 145H198C243.839 145 281 182.161 281 228V246H111V228Z" fill="#7ABBE8"/>
+  <path d="M133 163C145 151 160 145 176 145H216C232 145 247 151 259 163L267 246H125L133 163Z" fill="#66AADA"/>
+  <path d="M160 173H240" stroke="#EFF8FF" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="197" cy="95" r="60" fill="#F7CAA2"/>
+  <path d="M139 94C139 56.4446 169.445 26 207 26C244.555 26 275 56.4446 275 94V106C275 120.359 263.359 132 249 132H165C150.641 132 139 120.359 139 106V94Z" fill="#B85E41"/>
+  <path d="M146 90C146 59.0721 171.072 34 202 34H212C242.928 34 268 59.0721 268 90V98H146V90Z" fill="#B85E41"/>
+  <path d="M146 106C141 136 149 159 172 178" stroke="#B85E41" stroke-width="11" stroke-linecap="round"/>
+  <path d="M268 106C273 136 265 159 242 178" stroke="#B85E41" stroke-width="11" stroke-linecap="round"/>
+  <ellipse cx="180" cy="101" rx="5.5" ry="6.5" fill="#2A2324"/>
+  <ellipse cx="219" cy="101" rx="5.5" ry="6.5" fill="#2A2324"/>
+  <path d="M164 88C171 82 180 80 188 83" stroke="#2A2324" stroke-width="4" stroke-linecap="round"/>
+  <path d="M211 83C219 80 228 82 234 88" stroke="#2A2324" stroke-width="4" stroke-linecap="round"/>
+  <path d="M183 132C190 139 208 139 214 132" stroke="#B86966" stroke-width="5" stroke-linecap="round"/>
+  <path d="M114 160C105 153 92 154 85 163L66 187C61 193 61 201 66 207L74 214C80 220 89 220 95 214L115 196L114 160Z" fill="#F7CAA2"/>
+  <path d="M279 161C287 154 300 155 306 164L325 189C330 195 330 204 325 209L317 216C311 222 302 222 296 216L276 198L279 161Z" fill="#F7CAA2"/>
+  <circle cx="305" cy="152" r="18" fill="#FFE481"/>
+  <path d="M305 141V163" stroke="#F39E32" stroke-width="5" stroke-linecap="round"/>
+  <path d="M294 152H316" stroke="#F39E32" stroke-width="5" stroke-linecap="round"/>
+  <path d="M98 206C111 196 121 181 128 162" stroke="#66AADA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M292 208C278 197 268 181 262 162" stroke="#66AADA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M36 214C52 192 75 180 101 178" stroke="#E58EB0" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+</svg>

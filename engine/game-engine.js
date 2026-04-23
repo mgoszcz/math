@@ -1,5 +1,31 @@
 (function () {
   const MathChallengeGenerator = window.MathChallengeGenerator;
+  const illustrationLibrary = {
+    tata: {
+      src: "./assets/npc/tata.png",
+      alt: "Portret taty",
+      badge: "Podejrzany",
+      moodClass: "is-tata",
+    },
+    siostra: {
+      src: "./assets/npc/siostra.png",
+      alt: "Portret siostry",
+      badge: "Swiadek",
+      moodClass: "is-siostra",
+    },
+    clue: {
+      src: "./assets/npc/trop.png",
+      alt: "Ilustracja tropu",
+      badge: "Trop",
+      moodClass: "is-clue",
+    },
+    final: {
+      src: "./assets/npc/final.jpg",
+      alt: "Ilustracja finalu sprawy",
+      badge: "Final",
+      moodClass: "is-final",
+    },
+  };
 
   class GameEngine {
     constructor({ scenario, selectedClass, elements }) {
@@ -164,7 +190,7 @@
       this.elements.modalDescription.textContent = step.description;
       this.elements.feedbackMessage.textContent = "";
       this.elements.questionActions.classList.add("hidden");
-      this.styleIllustration(step.kind);
+      this.styleIllustration(step);
       this.resetNextButtonLabel();
       this.clearPendingAdvance();
 
@@ -190,14 +216,33 @@
       this.elements.modalBackdrop.classList.remove("hidden");
     }
 
-    styleIllustration(kind) {
-      if (kind === "character") {
-        this.elements.modalIllustration.style.background = "linear-gradient(135deg, #f8d9b9, #d7e8f7)";
-      } else if (kind === "final") {
-        this.elements.modalIllustration.style.background = "linear-gradient(135deg, #f6de90, #d8ebc7)";
-      } else {
-        this.elements.modalIllustration.style.background = "linear-gradient(135deg, #f7ddb4, #d6ebcf)";
+    styleIllustration(step) {
+      const illustration = this.getIllustrationForStep(step);
+      const illustrationElement = this.elements.modalIllustration;
+
+      illustrationElement.classList.remove("is-tata", "is-siostra", "is-clue", "is-final");
+      illustrationElement.classList.add(illustration.moodClass);
+      this.elements.modalPortrait.src = illustration.src;
+      this.elements.modalPortrait.alt = illustration.alt;
+      this.elements.modalIllustrationBadge.textContent = illustration.badge;
+    }
+
+    getIllustrationForStep(step) {
+      if (step.kind === "final") {
+        return illustrationLibrary.final;
       }
+
+      const dialogue = step.dialogue ?? "";
+
+      if (dialogue.startsWith("Tata:")) {
+        return illustrationLibrary.tata;
+      }
+
+      if (dialogue.startsWith("Siostra:")) {
+        return illustrationLibrary.siostra;
+      }
+
+      return illustrationLibrary.clue;
     }
 
     renderMathAnswers(step, sessionChallenge) {
