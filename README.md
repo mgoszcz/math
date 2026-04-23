@@ -6,7 +6,7 @@ Prosty projekt przeglądarkowej gry edukacyjnej dla dzieci z klas 1-3.
 
 Gra ma pomagać ćwiczyć dodawanie i odejmowanie w lekkiej, zabawnej formule detektywistycznej. Dziecko przechodzi przez krótką zagadkę, odwiedza kolejne miejsca na mapie i odblokowuje wskazówki, rozwiązując działania matematyczne.
 
-## Główny pomysł
+## Główny Pomysł
 
 - Każda sprawa to jedna mała zagadka, np. `Gdzie zaginął miś?`
 - Gracz wciela się w detektywa.
@@ -16,7 +16,7 @@ Gra ma pomagać ćwiczyć dodawanie i odejmowanie w lekkiej, zabawnej formule de
 - Jedna sprawa składa się z 10 działań.
 - Na końcu gracz wybiera rozwiązanie zagadki i dostaje pozytywne podsumowanie.
 
-## Proponowana technologia
+## Proponowana Technologia
 
 Na start rekomendowany jest:
 
@@ -34,7 +34,7 @@ Dlaczego ten wybór:
 - proste rozszerzanie o nowe sprawy,
 - brak potrzeby ciężkiego silnika gier na pierwszą wersję.
 
-## Założenia projektowe
+## Założenia Projektowe
 
 - Mało tekstu, dużo obrazu.
 - Duże przyciski i czytelne cyfry.
@@ -46,26 +46,26 @@ Dlaczego ten wybór:
 
 Aktualny kierunek projektu to `generic engine + dane scenariusza`.
 
-- silnik gry obsluguje ekran startowy, mape, hotspoty, modal, postep i final,
-- scenariusze sa przechowywane osobno i opisuja tresc sprawy oraz kroki rozgrywki,
-- obecnie dane sa zapisane w module JS, ale format jest celowo zblizony do przyszlego JSON-a,
-- taka struktura pozwoli pozniej generowac nowe sprawy automatycznie i dolaczac je bez przebudowy logiki.
-- zadania matematyczne sa teraz generowane z szablonow przypisanych do klasy i kroku scenariusza.
+- silnik gry obsługuje ekran startowy, mapę, hotspoty, modal, postęp i finał,
+- scenariusze są przechowywane osobno i opisują treść sprawy oraz kroki rozgrywki,
+- obecnie dane są zapisane w module JS, ale format jest celowo zbliżony do przyszłego JSON-a,
+- taka struktura pozwoli później generować nowe sprawy automatycznie i dołączać je bez przebudowy logiki,
+- zadania matematyczne są generowane z szablonów przypisanych do klasy i kroku scenariusza.
 
-Edycja poziomow trudnosci:
+Edycja poziomów trudności:
 
-- profile klas znajduja sie w `data/scenarios.js` w sekcji `math.classProfiles`,
-- kazda klasa ma wlasne szablony, np. `add_small`, `subtract_small`, `mixed_easy`, `mixed_medium`,
-- krok scenariusza wskazuje tylko `templateId`, dzieki czemu balans mozna zmieniac centralnie,
-- architektura jest otwarta na kolejne operacje, np. mnozenie i dzielenie, przez rozszerzenie generatora w `engine/math-generator.js`.
+- profile klas znajdują się w [data/scenarios.js](/D:/GitRepo/math/data/scenarios.js) w sekcji `math.classProfiles`,
+- każda klasa ma własne szablony, np. `add_small`, `subtract_small`, `mixed_easy`, `mixed_medium`,
+- krok scenariusza wskazuje tylko `templateId`, dzięki czemu balans można zmieniać centralnie,
+- architektura jest otwarta na kolejne operacje, np. mnożenie i dzielenie, przez rozszerzenie generatora w [engine/math-generator.js](/D:/GitRepo/math/engine/math-generator.js).
 
-Na przyszlosc warto tu dodac jeszcze jedna warstwe:
+Na przyszłość warto dodać jeszcze jedną warstwę:
 
-- zapis wynikow dziecka,
-- historie odpowiedzi,
-- adaptacje poziomu trudnosci na podstawie skutecznosci.
+- zapis wyników dziecka,
+- historię odpowiedzi,
+- adaptację poziomu trudności na podstawie skuteczności.
 
-## Pierwsza wersja MVP
+## Pierwsza Wersja MVP
 
 Pierwsze wydanie powinno zawierać:
 
@@ -76,18 +76,19 @@ Pierwsze wydanie powinno zawierać:
 - ekran końcowy z rozwiązaniem sprawy,
 - podstawowe efekty wizualne i dźwiękowe.
 
-## Następny krok
+## Dokumentacja
 
 Szczegółowy plan i projekt gry znajdują się w dokumentach:
 
 - [Plan projektu](D:\GitRepo\math\docs\plan.md)
 - [Projekt gry](D:\GitRepo\math\docs\game-design.md)
 - [Format scenariusza](D:\GitRepo\math\docs\scenario-format.md)
-- [Prompty tla mapy](D:\GitRepo\math\docs\map-background-prompts.md)
+- [Prompty tła mapy](D:\GitRepo\math\docs\map-background-prompts.md)
+- [Mini projekt wizualny](D:\GitRepo\math\docs\visual-mini-project.md)
 
-## Lokalny prototyp
+## Lokalny Prototyp
 
-W katalogu glownym znajduje sie pierwsza grywalna wersja prototypu:
+W katalogu głównym znajduje się pierwsza grywalna wersja prototypu:
 
 - `index.html`
 - `styles.css`
@@ -98,12 +99,6 @@ W katalogu glownym znajduje sie pierwsza grywalna wersja prototypu:
 
 Uruchomienie lokalne:
 
-1. Otworz `index.html` w przegladarce.
+1. Otwórz [index.html](D:\GitRepo\math\index.html) w przeglądarce.
 
-Mozna tez uruchomic prosty lokalny serwer, jesli bedzie potrzebny pozniej, ale na obecnym etapie nie jest to konieczne.
-
-
-
-
-
-
+Można też uruchomić prosty lokalny serwer, jeśli będzie potrzebny później, ale na obecnym etapie nie jest to konieczne.
