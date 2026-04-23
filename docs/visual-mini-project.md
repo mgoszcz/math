@@ -1,4 +1,4 @@
-# Mini projekt graficzny
+ï»¿# Mini projekt graficzny
 
 ## Cel etapu
 
@@ -186,7 +186,7 @@ Nie potrzebujemy jeszcze prawdziwej animacji chodzenia klatka po klatce.
 
 ### Co poprawiamy
 
-Modal powinien mocniej odrozniaæ:
+Modal powinien mocniej odrozniac:
 
 - trop,
 - rozmowe z postacia,
