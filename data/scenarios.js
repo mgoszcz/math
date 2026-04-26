@@ -999,7 +999,7 @@ window.gameScenarios = [
         kind: "character",
         location: "Pokoj dziecka",
         description: "Pod lozkiem sa klocki, ale skarpetki brak.",
-        dialogue: "Siostra: WidziaÄąâ€šam cos bialego, ale polecialo dalej jak wiatr!",
+        dialogue: "Siostra: Widzialam cos bialego, ale polecialo dalej jak wiatr!",
         clue: "To cos moglo poleciec w strone salonu.",
         challenge: { type: "math", templateId: "subtract_small" },
         hotspot: { x: 11, y: 22 }
@@ -1023,7 +1023,7 @@ window.gameScenarios = [
         kind: "character",
         location: "Taras",
         description: "Na suszarce brakuje jednego miejsca po skarpetce.",
-        dialogue: "Tata: WieszaÄąâ€šem pranie. Potem troche zawialo... ale nie bardzo!",
+        dialogue: "Tata: Wieszalem pranie. Potem troche zawialo... ale nie bardzo!",
         clue: "Wiatr mogl zdmuchnac skarpetke do ogrodu.",
         challenge: { type: "math", templateId: "mixed_easy" },
         hotspot: { x: 46, y: 27 }
@@ -1092,6 +1092,372 @@ window.gameScenarios = [
           correctAnswer: "Zdmuchnal ja wiatr z suszarki",
           successFeedback: "Tak! Wiatr zdmuchnal skarpetke z tarasu.",
           failureFeedback: "To jeszcze nie pasuje do tropow."
+        },
+        hotspot: { x: 69, y: 58 }
+      }
+    ]
+  },
+  {
+    id: "runaway-kitten",
+    title: "Gdzie uciekl kotek?",
+    subtitle: "Maly ogonek mignal i juz go nie ma. Trzeba szybko znalezc tropy.",
+    intro:
+      "Kotek nagle zniknal z domu. Szukaj sladow, rozwiazuj zadania i sprawdz, gdzie schowal sie maly uciekinier.",
+    goalText: "Znajdz kotka i sprawdz, gdzie sie schowal",
+    emptyClueText: "Kociej kokardki jeszcze nie ma. Pierwszy trop czeka w pokoju.",
+    finalMessage:
+      "Kotek wcale nie uciekl daleko. Pobiegl za kolorowa wstazka, a potem zasnal bezpiecznie pod kocem piknikowym w ogrodzie.",
+    math: {
+      classProfiles: {
+        1: {
+          maxValue: 20,
+          templates: {
+            add_small: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 1, max: 9 },
+                right: { min: 1, max: 9 }
+              },
+              result: { min: 0, max: 20 },
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 4, minValue: 0 }
+            },
+            add_medium: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 4, max: 12 },
+                right: { min: 3, max: 9 }
+              },
+              result: { min: 0, max: 20 },
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
+            },
+            subtract_small: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 6, max: 16 },
+                right: { min: 1, max: 8 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 4, minValue: 0 }
+            },
+            subtract_medium: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 10, max: 20 },
+                right: { min: 2, max: 10 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
+            },
+            mixed_easy: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 4, max: 14 },
+                right: { min: 1, max: 8 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 4, minValue: 0 }
+            },
+            mixed_medium: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 8, max: 18 },
+                right: { min: 2, max: 9 }
+              },
+              result: { min: 0, max: 20 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 1, deltaMax: 5, minValue: 0 }
+            }
+          }
+        },
+        2: {
+          maxValue: 30,
+          templates: {
+            add_small: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 6, max: 16 },
+                right: { min: 4, max: 12 }
+              },
+              result: { min: 0, max: 30 },
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 6, minValue: 0 }
+            },
+            add_medium: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 10, max: 20 },
+                right: { min: 6, max: 14 }
+              },
+              result: { min: 0, max: 30 },
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
+            },
+            subtract_small: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 12, max: 24 },
+                right: { min: 3, max: 10 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 6, minValue: 0 }
+            },
+            subtract_medium: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 16, max: 30 },
+                right: { min: 4, max: 14 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
+            },
+            mixed_easy: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 8, max: 20 },
+                right: { min: 3, max: 12 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 6, minValue: 0 }
+            },
+            mixed_medium: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 12, max: 26 },
+                right: { min: 4, max: 14 }
+              },
+              result: { min: 0, max: 30 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 7, minValue: 0 }
+            }
+          }
+        },
+        3: {
+          maxValue: 50,
+          templates: {
+            add_small: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 10, max: 24 },
+                right: { min: 8, max: 18 }
+              },
+              result: { min: 0, max: 50 },
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 8, minValue: 0 }
+            },
+            add_medium: {
+              kind: "arithmetic",
+              operations: ["add"],
+              operands: {
+                left: { min: 15, max: 32 },
+                right: { min: 9, max: 20 }
+              },
+              result: { min: 0, max: 50 },
+              answerOptions: { count: 3, deltaMin: 3, deltaMax: 9, minValue: 0 }
+            },
+            subtract_small: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 18, max: 40 },
+                right: { min: 5, max: 16 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 8, minValue: 0 }
+            },
+            subtract_medium: {
+              kind: "arithmetic",
+              operations: ["subtract"],
+              operands: {
+                left: { min: 24, max: 50 },
+                right: { min: 6, max: 20 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 3, deltaMax: 9, minValue: 0 }
+            },
+            mixed_easy: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 12, max: 30 },
+                right: { min: 5, max: 16 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 2, deltaMax: 8, minValue: 0 }
+            },
+            mixed_medium: {
+              kind: "arithmetic",
+              operations: ["add", "subtract"],
+              operands: {
+                left: { min: 18, max: 40 },
+                right: { min: 6, max: 20 }
+              },
+              result: { min: 0, max: 50 },
+              allowNegativeResult: false,
+              answerOptions: { count: 3, deltaMin: 3, deltaMax: 9, minValue: 0 }
+            }
+          }
+        }
+      }
+    },
+    map: {
+      backgroundImage: "./assets/backgrounds/home-garden-board.png",
+      trailPath:
+        "M11 22 L29 28 L12 62 L41 63 L46 27 L61 46 L62 17 L77 19 L80 79 L69 58",
+      areas: [
+        { key: "bedroom", className: "room room-bedroom", label: "Pokoj" },
+        { key: "hall", className: "room room-hall", label: "Korytarz" },
+        { key: "kitchen", className: "room room-kitchen", label: "Kuchnia" },
+        { key: "living", className: "room room-living", label: "Salon" },
+        { key: "terrace", className: "room room-terrace", label: "Taras" },
+        { key: "shed", className: "garden-shed", label: "Domek" },
+        { key: "swing", className: "garden-swing", label: "Hustawka" },
+        { key: "picnic", className: "garden-picnic", label: "Koc" }
+      ]
+    },
+    steps: [
+      {
+        id: 1,
+        title: "Pokoj dziecka",
+        shortLabel: "Pokoj",
+        kind: "clue",
+        location: "Pokoj dziecka",
+        description: "Legowisko kotka jest puste. Obok lezy poruszona, kolorowa wstazka.",
+        dialogue: "",
+        clue: "Kotek chyba pobiegl za wstazka.",
+        challenge: { type: "math", templateId: "add_small" },
+        hotspot: { x: 11, y: 22 }
+      },
+      {
+        id: 2,
+        title: "Korytarz",
+        shortLabel: "Korytarz",
+        kind: "clue",
+        location: "Korytarz",
+        description: "Na podlodze widac male slady lapek i przesuniety klapek.",
+        dialogue: "",
+        clue: "Slady prowadza prosto do kuchni.",
+        challenge: { type: "math", templateId: "subtract_small" },
+        hotspot: { x: 29, y: 28 }
+      },
+      {
+        id: 3,
+        title: "Kuchnia",
+        shortLabel: "Kuchnia",
+        kind: "character",
+        location: "Kuchnia",
+        description: "Miseczka z woda stoi krzywo, jakby ktos bardzo sie spieszyl.",
+        dialogue: "Siostra: Kotek mignal mi przy stole i pobiegl dalej za czyms blyszczacym!",
+        clue: "To cos moglo poleciec do salonu.",
+        challenge: { type: "math", templateId: "mixed_easy" },
+        hotspot: { x: 12, y: 62 }
+      },
+      {
+        id: 4,
+        title: "Salon",
+        shortLabel: "Salon",
+        kind: "clue",
+        location: "Salon",
+        description: "Pod stolikiem lezy myszka-zabawka i kawalek wstazki.",
+        dialogue: "",
+        clue: "Wstazka prowadzi w strone tarasu.",
+        challenge: { type: "math", templateId: "add_medium" },
+        hotspot: { x: 41, y: 63 }
+      },
+      {
+        id: 5,
+        title: "Taras",
+        shortLabel: "Taras",
+        kind: "character",
+        location: "Taras",
+        description: "Drzwi na taras sa uchylone. To wyglada bardzo podejrzanie.",
+        dialogue: "Tata: Otworzylem drzwi tylko na chwile. Kotek sam czmychnal za wstazka.",
+        clue: "Trzeba isc tropem do ogrodu.",
+        challenge: { type: "math", templateId: "mixed_medium" },
+        hotspot: { x: 46, y: 27 }
+      },
+      {
+        id: 6,
+        title: "Sciezka",
+        shortLabel: "Sciezka",
+        kind: "clue",
+        location: "Ogrodowa sciezka",
+        description: "W kurzu widac male lapki i cos, co blyszczy w sloncu.",
+        dialogue: "",
+        clue: "To dzwoneczek od obrozy. Kotek pobiegl dalej.",
+        challenge: { type: "math", templateId: "subtract_medium" },
+        hotspot: { x: 61, y: 46 }
+      },
+      {
+        id: 7,
+        title: "Hustawka",
+        shortLabel: "Hustawka",
+        kind: "clue",
+        location: "Hustawka",
+        description: "Na siedzeniu hustawki wisi koncowka kolorowej wstazki.",
+        dialogue: "",
+        clue: "Kotek bawil sie tu tylko chwilke i pobiegl dalej.",
+        challenge: { type: "math", templateId: "mixed_easy" },
+        hotspot: { x: 62, y: 17 }
+      },
+      {
+        id: 8,
+        title: "Domek",
+        shortLabel: "Domek",
+        kind: "character",
+        location: "Domek na narzedzia",
+        description: "Za drzwiami cos zaszuralo... ale to tylko grabie i konewka.",
+        dialogue: "Tata: Tez myslalem, ze tam siedzi, ale to byl falszywy alarm.",
+        clue: "Przy domku lezy jeszcze jeden slad lapki.",
+        challenge: { type: "math", templateId: "add_small" },
+        hotspot: { x: 77, y: 19 }
+      },
+      {
+        id: 9,
+        title: "Koc",
+        shortLabel: "Koc",
+        kind: "clue",
+        location: "Koc piknikowy",
+        description: "Spod koca slychac ciche mruczenie. To bardzo obiecujacy trop.",
+        dialogue: "",
+        clue: "Kotek schowal sie pod kocem i chyba juz zasypia.",
+        challenge: { type: "math", templateId: "mixed_medium" },
+        hotspot: { x: 80, y: 79 }
+      },
+      {
+        id: 10,
+        title: "Final",
+        shortLabel: "Final",
+        kind: "final",
+        location: "Rozwiazanie sprawy",
+        description: "Gdzie znalazl sie kotek na koncu tej przygody?",
+        dialogue: "",
+        clue: "Wszystkie tropy juz sie zgadzaja.",
+        challenge: {
+          type: "choice",
+          prompt: "Gdzie schowal sie kotek?",
+          options: ["Pod kocem piknikowym", "W lodowce", "W szafie w pokoju"],
+          correctAnswer: "Pod kocem piknikowym",
+          successFeedback: "Tak! Kotek zasnal pod kocem piknikowym.",
+          failureFeedback: "To jeszcze nie pasuje do wszystkich tropow."
         },
         hotspot: { x: 69, y: 58 }
       }
