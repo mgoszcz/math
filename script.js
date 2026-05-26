@@ -3,7 +3,7 @@ const GameEngine = window.GameEngine;
 const heroes = [
   {
     id: "zosia",
-    name: "Zosia",
+    name: "Marysia",
     copy: "Spokojna tropicielka, ktora lubi zagladac tam, gdzie inni nie patrza.",
     avatarSrc: "./assets/heroes/zosia.jpg",
   },
@@ -68,7 +68,9 @@ const endingBackdrop = document.getElementById("ending-backdrop");
 const endingText = document.getElementById("ending-text");
 const modalIllustration = document.getElementById("modal-illustration");
 const modalPortrait = document.getElementById("modal-portrait");
-const modalIllustrationBadge = document.getElementById("modal-illustration-badge");
+const modalIllustrationBadge = document.getElementById(
+  "modal-illustration-badge",
+);
 const trailPath = document.getElementById("trail-path");
 const selectedHeroAvatar = document.getElementById("selected-hero-avatar");
 const selectedHeroName = document.getElementById("selected-hero-name");
